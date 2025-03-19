@@ -1,0 +1,6 @@
+streamlit
+opencv-python
+pandas
+face_recognition
+numpy
+scipy
