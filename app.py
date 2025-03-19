@@ -1,17 +1,4 @@
 import streamlit as st
-
-
-try:
-    import cv2
-except ImportError as e:
-    st.error(f"Failed to import OpenCV: {e}")
-
-import pandas as pd
-import os
-from datetime import datetime
-from face_detection import load_known_faces, initialize_attendance_csv, load_attendance_data, detect_faces
-
-# ... rest of your code ...
 import cv2
 import pandas as pd
 import os
