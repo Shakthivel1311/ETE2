@@ -1,12 +1,8 @@
-import os
-
-# Ensure the required packages are installed
-os.system("pip install --no-cache-dir --force-reinstall dlib-bin face-recognition opencv-python-headless")
-
-# Now, import the necessary libraries
+import streamlit as st
 import cv2
 import pandas as pd
 import os
+os.system("pip install --no-cache-dir --force-reinstall dlib-bin face-recognition opencv-python-headless")
 from datetime import datetime
 from face_detection import load_known_faces, initialize_attendance_csv, load_attendance_data, detect_faces
 
@@ -100,16 +96,19 @@ def display_attendance_details(csv_file):
                                 df.at[index, "Status"] = status
                                 df.to_csv(csv_file, index=False)
                                 st.success(f"✅ Attendance updated for {row['Name']}.")
+
                     # Display the filtered table
                     st.write("### 📜 Filtered Attendance Records")
                     st.table(filtered_df[["Date", "Time", "Name", "Status"]])
                 else:
                     st.warning(f"No records found for {selected_date}.")
+
                 # Export Attendance
                 st.write("### 📤 Export Attendance")
                 if st.button("Export to CSV"):
                     df.to_csv("attendance_export.csv", index=False)
                     st.success("Attendance data exported to `attendance_export.csv`.")
+
                 # Full Attendance Records
                 st.write("### 📜 Full Attendance Records")
                 st.table(df[["Date", "Time", "Name", "Status"]])
