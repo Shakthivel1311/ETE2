@@ -1,8 +1,8 @@
+streamlit
 opencv-python-headless
 numpy
 pandas
 scipy
-streamlit
 face-recognition
-cmake
 dlib
+cmake
